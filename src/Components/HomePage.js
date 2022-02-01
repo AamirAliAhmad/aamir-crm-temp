@@ -5,6 +5,7 @@ export default function HomePage()
     return(
         <div>
             {/* <MasterLayout></MasterLayout> */}
+            {/* aamir test change */}
             <ReactNavSideMenu></ReactNavSideMenu>
         </div>
     );
