@@ -1,0 +1,4 @@
+1.) react router v5 to v6 changes.--https://reactrouter.com/docs/en/v6/upgrading/v5
+2.) react-bootstrap components and side navbar --https://react-bootstrap.github.io/components/navbar/
+3.) react-bootstrap side nav and manymore - https://mdbootstrap.com/docs/b5/react/navigation/navbar/
+4.) redux-- https://github.com/cornflourblue/react-redux-registration-login-example
