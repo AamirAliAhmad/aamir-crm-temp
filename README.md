@@ -1,3 +1,9 @@
+#Pull and Push
+git init  -- to initialise repository if you already add origin.(other wise check steps to for commit and push)
+git pull  -- to get all git update files.
+git add.  -- to add changes file all
+git status  -- to get all file names which are added by add.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
