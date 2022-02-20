@@ -6,6 +6,7 @@ export default function HomePage()
         <div>
             {/* <MasterLayout></MasterLayout> */}
             {/* aamir test change */}
+            {/* hellow */}
             <ReactNavSideMenu></ReactNavSideMenu>
         </div>
     );

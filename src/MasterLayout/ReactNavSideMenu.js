@@ -104,6 +104,9 @@ const ReactNavSideMenu = () => {
 
 
                         <div className="container-fluid">
+
+                            {/* from here pages will create easily, rest of code need to devide into top menu and side menu */}
+
                             <div className="row">
                                 <div className="col-lg-12">
                                     <h1 className="page-header">Dashboard</h1>
