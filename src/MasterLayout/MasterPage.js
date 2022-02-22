@@ -11,6 +11,13 @@ import LoginUser from '../Images/LoginUser.png'
 import AscenTech_Logo from '../Images/AscenTech_Logo.png'
 import '../css/font-awesome.min.css'
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefaultError from "../DefaultError.js";
+import HomePage from "../Components/HomePage.js";
+import ComplaintRegistration from '../Components/ComplaintRegistration.js'
+import TestPage from "../Components/TestPage";
+
+
 const ReactNavSideMenu = () => {
 
     const [isActive, setActive] = useState("false");
@@ -24,90 +31,98 @@ const ReactNavSideMenu = () => {
     };
 
     return (
-        <div>
-            <div className="Body-Page">
-                <div className="Master-Header">
-                    <div style={{ width: '220px' }}> <img src={AscenTech_Logo} /></div>
-                    <div><button className="btn btn-primary" onClick={handleToggle}>|||</button></div>
-                    <div style={{ textAlign: 'center', flex: '1', color: 'white', fontSize: '30px', fontWeight: 'bold' }}>ASCENTech Information Technology Pvt Ltd</div>
-                    <div style={{}}>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="white" id="dropdown-basic" style={{ padding: '3px 7px 3px 7px', color: 'white' }}>
-                                <img src={LoginUser} width="35" height="35" />
-                            </Dropdown.Toggle>
+        <BrowserRouter>
+            <div>
+                <div className="Body-Page">
+                    <div className="Master-Header">
+                        <div style={{ width: '220px' }}><NavLink to="/"> <img src={AscenTech_Logo} /></NavLink> </div>
+                        <div><button className="btn btn-primary" onClick={handleToggle}>|||</button></div>
+                        <div style={{ textAlign: 'center', flex: '1', color: 'white', fontSize: '30px', fontWeight: 'bold' }}>ASCENTech Information Technology Pvt Ltd</div>
+                        <div style={{}}>
+                            <Dropdown>
+                                <Dropdown.Toggle variant="white" id="dropdown-basic" style={{ padding: '3px 7px 3px 7px', color: 'white' }}>
+                                    <img src={LoginUser} width="35" height="35" />
+                                </Dropdown.Toggle>
 
-                            <Dropdown.Menu>
-                                <Dropdown.Item style={{ textAlign: 'center' }}>
-                                    <div onClick={(e) => { e.preventDefault() }}>Admin User</div>
-                                </Dropdown.Item>
-                                <Dropdown.Divider></Dropdown.Divider>
-                                <Dropdown.Item style={{ textAlign: 'center' }}>
-                                    <button className="btn btn-danger btn-sm" onClick={() => { alert('Server Loading') }}>Logout</button>
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </div>
-
-                </div>
-                <div className="Master-Body">
-                    <div className={isActive ? "Nav-Side-Menu-Width" : "Nav-Side-Menu"}>
-
-
-                        <div className="parent-menu">
-                            <div className="parent-menu-heading">Admin</div>
-                            <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Password Change</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Password Reset</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Menu Access</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Mob.Version Update</NavLink></li>
-                            </ul>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item style={{ textAlign: 'center' }}>
+                                        <div onClick={(e) => { e.preventDefault() }}>Admin User</div>
+                                    </Dropdown.Item>
+                                    <Dropdown.Divider></Dropdown.Divider>
+                                    <Dropdown.Item style={{ textAlign: 'center' }}>
+                                        <button className="btn btn-danger btn-sm" onClick={() => { alert('Server Loading') }}>Logout</button>
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
                         </div>
-
-                        <div className="parent-menu">
-                            <div className="parent-menu-heading">Master</div>
-                            <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">User Master</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Department Master</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Type Master</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Sub Type Master</NavLink></li>
-                            </ul>
-                        </div>
-
-                        <div className="parent-menu">
-                            <div className="parent-menu-heading">Complaint</div>
-                            <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Registration</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Authorisation</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Assign</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Status Update</NavLink></li>
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">My Task List</NavLink></li>
-                            </ul>
-                        </div>
-
-                        <div className="parent-menu">
-                            <div className="parent-menu-heading">Reports</div>
-                            <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
-                                <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Close Details</NavLink></li>
-                            </ul>
-                        </div>
-
-                        <div className="Master-Footer"><NavLink to=""
-                            onClick={() => {
-                                window.open('https://ascentechindia.com/', "_blank").focus();
-                            }}
-                            style={{ textDecoration: 'none' }}>Powered By: ASCENTech</NavLink></div>
 
                     </div>
+                    <div className="Master-Body">
+                        <div className={isActive ? "Nav-Side-Menu-Width" : "Nav-Side-Menu"}>
 
 
-                    <div className={isActive ? "Content-Page-Width" : "Content-Page"}>
+                            <div className="parent-menu">
+                                <div className="parent-menu-heading">Admin</div>
+                                <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Password Change</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Password Reset</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Menu Access</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Mob.Version Update</NavLink></li>
+                                </ul>
+                            </div>
+
+                            <div className="parent-menu">
+                                <div className="parent-menu-heading">Master</div>
+                                <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">User Master</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Department Master</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Type Master</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Sub Type Master</NavLink></li>
+                                </ul>
+                            </div>
+
+                            <div className="parent-menu">
+                                <div className="parent-menu-heading">Complaint</div>
+                                <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
+                                    <li><NavLink className="parent-menu-sub-Link" to="/Components/ComplaintRegistration">Comp.Registration</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Authorisation</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Assign</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Status Update</NavLink></li>
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">My Task List</NavLink></li>
+                                </ul>
+                            </div>
+
+                            <div className="parent-menu">
+                                <div className="parent-menu-heading">Reports</div>
+                                <ul className="parent-menu-sub" style={{ listStyleType: 'none' }} >
+                                    <li><NavLink className="parent-menu-sub-Link" to="/about">Comp.Close Details</NavLink></li>
+                                </ul>
+                            </div>
+
+                            <div className={"Master-Footer"}><NavLink to=""
+                                onClick={() => {
+                                    window.open('https://ascentechindia.com/', "_blank").focus();
+                                }}
+                                style={{ textDecoration: 'none' }}>Powered By: ASCENTech</NavLink></div>
+
+                        </div>
 
 
-                        <div className="container-fluid">
+                        <div className={isActive ? "Content-Page-Width" : "Content-Page"}>
 
-                            {/* from here pages will create easily, rest of code need to devide into top menu and side menu */}
 
-                            <div className="row">
+                            <div className="container-fluid">
+                                <Routes>
+                                    {/*<Route path="/" element={<ReactNavSideMenu/>}/>*/}
+                                    <Route path="/Components/ComplaintRegistration" element={<ComplaintRegistration />} />
+                                    <Route path="*" element={<DefaultError />} />
+                                    <Route path="/" element={<HomePage />} />
+                                </Routes>
+
+
+                                {/* from here pages will create easily, rest of code need to devide into top menu and side menu */}
+
+                                {/* <div className="row">
                                 <div className="col-lg-12">
                                     <h1 className="page-header">Dashboard</h1>
                                 </div>
@@ -204,15 +219,15 @@ const ReactNavSideMenu = () => {
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            {/* 
+                {/* 
             <Navbar bg="light" expand={false}>
                 <div>
                     <Navbar.Brand href="#" >CRM Dashoboard</Navbar.Brand>
@@ -227,7 +242,7 @@ const ReactNavSideMenu = () => {
                         </Offcanvas.Header>
                         <Offcanvas.Body> */}
 
-            {/* <div className="dropdown">
+                {/* <div className="dropdown">
                                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" 
                                 data-bs-toggle="dropdown">
                                     Dropdown button
@@ -238,7 +253,7 @@ const ReactNavSideMenu = () => {
                                     <li><a className="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
                             </div> */}
-            {/* <Nav className="justify-content-end flex-grow-1 pe-3">
+                {/* <Nav className="justify-content-end flex-grow-1 pe-3">
                                
                                 <Nav.Link href="#action1">Home</Nav.Link>
                                 <Nav.Link href="#action2">Link</Nav.Link>
@@ -254,13 +269,13 @@ const ReactNavSideMenu = () => {
                                 <NavDropdown title="Compalaint" id="offcanvasNavbarDropdown2">
                                     <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action4">Another action</NavDropdown.Item> */}
-            {/* <NavDropdown.Divider /> */}
-            {/* <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+                {/* <NavDropdown.Divider /> */}
+                {/* <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
                                 </NavDropdown>
 
 
                             </Nav> */}
-            {/* <Form className="d-flex">
+                {/* <Form className="d-flex">
                                 <FormControl
                                     type="search"
                                     placeholder="Search"
@@ -269,11 +284,11 @@ const ReactNavSideMenu = () => {
                                 />
                                 <Button variant="outline-success">Search</Button>
                             </Form> */}
-            {/* </Offcanvas.Body>
+                {/* </Offcanvas.Body>
                     </Navbar.Offcanvas>
                 </div>
             </Navbar> */}
-            {/* <MDBContainer>
+                {/* <MDBContainer>
                 <MDBBtn onClick={this.sidenavToggle("Left")}>
                     <MDBIcon size="lg" icon="bars" />
                 </MDBBtn>
@@ -310,7 +325,8 @@ const ReactNavSideMenu = () => {
                     </MDBSideNavNav>
                 </MDBSideNav>
             </MDBContainer> */}
-        </div>
+            </div>
+        </BrowserRouter>
     );
 };
 

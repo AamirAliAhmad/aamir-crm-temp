@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 //import { useHistory } from "react-router-dom"; router dom-5
 import { useNavigate } from 'react-router-dom'  //router dom-6
 //import { loadOptions } from "@babel/core";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
  
 export default function ComplaintRegistration() {
     //Defining states
@@ -16,8 +18,8 @@ export default function ComplaintRegistration() {
     let [CompalaintPriority, SetCompalaintPriority] = useState([]);
 
     let [CompFormData, SetCompFormData] = useState({
-        entityId: "",
-        subEntityId: "",
+        entityId: "12",
+        subEntityId: "65",
         projectId:"",
         compTypeId:"",
         compSubTypeId:"",
@@ -154,7 +156,20 @@ export default function ComplaintRegistration() {
 
     function SaveComplaint() {
         console.warn(CompFormData);
-                return;
+        fetch('http://localhost:1085/api/Complaint/SaveComplaintPost',
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+            , body: JSON.stringify(CompFormData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            //console.log(data);
+            alert(data);
+        })
+        .catch(error => {
+            alert(error);
+        });
     }
     //==================================================================================================================================
 
@@ -166,19 +181,17 @@ export default function ComplaintRegistration() {
         return (
             <div>
                 {/* <MasterLayout></MasterLayout> */}
-                <div id="page-wrapper">
-                    <div className="container-fluid">
+                {/* <div id="page-wrapper"> */}
+                    {/* <div className="container-fluid"> */}
                         <div className="row">
                             <div className="col-lg-12">
-                                <h1 className="page-header">Complaint Registration</h1>
+                                <h5 className="page-header">Complaint Registration</h5>
+                                <hr/>
                             </div>
                         </div>
 
                         <form role="form" action="#">
-                            <div className="form-horizontal">
-
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                 <div className="row mb-2">
                                         <label className="col-md-2 control-label" htmlFor="ddlEntity">Entity
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -208,12 +221,12 @@ export default function ComplaintRegistration() {
                                                 }
                                             </select>
                                         </div>
-                                    </div>
+                                  
                                 </div>
 
 
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                <div className="row mb-2">
+                                    
                                         <label className="col-md-2 control-label" htmlFor="ddlProject">Project
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -240,12 +253,12 @@ export default function ComplaintRegistration() {
                                                 }
                                             </select>
                                         </div>
-                                    </div>
+                                     
                                 </div>
 
 
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                <div className="row mb-2">
+                                   
                                         <label className="col-md-2 control-label" htmlFor="ddlCompSubType">Comp.Sub Type
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -265,12 +278,12 @@ export default function ComplaintRegistration() {
                                         <div className="col-md-4">
                                             <input type="text" id="txtCitizenName" className="form-control" onChange={(e) => { CompFormData.citizenName=e.target.value; }}></input>
                                         </div>
-                                    </div>
+                                    
                                 </div>
 
 
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                <div className="row mb-2">
+                                   
                                         <label className="col-md-2 control-label" htmlFor="txtEmail">Email
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -283,11 +296,11 @@ export default function ComplaintRegistration() {
                                         <div className="col-md-4">
                                             <input type="text" id="txtContactNo" className="form-control" onChange={(e) => { CompFormData.contactNo=e.target.value; }}></input>
                                         </div>
-                                    </div>
+                                    
                                 </div>
 
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                <div className="row mb-2">
+                                    
                                         <label className="col-md-2 control-label" htmlFor="ddlCompSubType">Address
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -300,11 +313,11 @@ export default function ComplaintRegistration() {
                                         <div className="col-md-4">
                                             <input type="text" id="txtCitizenName" className="form-control" onChange={(e) => { CompFormData.complaint=e.target.value; }}></input>
                                         </div>
-                                    </div>
+                                    
                                 </div>
 
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                <div className="row mb-2">
+                                    
                                         <label className="col-md-2 control-label" htmlFor="dtComplaintDate">Complaint Date
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -317,11 +330,11 @@ export default function ComplaintRegistration() {
                                         <div className="col-md-4">
                                             <input type="time" id="dtComplaintTime" defaultValue="07:30" className="form-control"></input>
                                         </div>
-                                    </div>
+                                    
                                 </div>
 
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                <div className="row mb-2">
+                                    
                                         <label className="col-md-2 control-label" htmlFor="ddlSource">Source
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -348,11 +361,11 @@ export default function ComplaintRegistration() {
                                                 }
                                             </select>
                                         </div>
-                                    </div>
+                                     
                                 </div>
 
-                                <div className="form-group">
-                                    <div className="col-md-12">
+                                <div className="row mb-2">
+                                    
                                         <label className="col-md-2 control-label" htmlFor="txtReferenceNo">Reference No
                                             <div style={{ float: "right" }}>:</div>
                                         </label>
@@ -365,10 +378,10 @@ export default function ComplaintRegistration() {
                                         <div className="col-md-4">
                                             <input type="file" id="fileUploadImage" accept=".jpg,.jpeg,.png" onChange={(e) => { CompFormData.uploadedFile=e.target.files[0]; }}></input>
                                         </div>
-                                    </div>
+                                   
                                 </div>
-                                <div className="form-group">
-                                    <div className="col-md-12" style={{ textAlign: "center" }}>
+                                <div className="row mb-2">
+                                    <div className="" style={{ textAlign: "center" }}>
 
                                         <button type="button" className="btn btn-success" onClick={SaveComplaint}>Save</button>
                                         &nbsp;&nbsp;
@@ -379,10 +392,10 @@ export default function ComplaintRegistration() {
 
                                     </div>
                                 </div>
-                            </div>
+                            
                         </form>
                     </div>
-                </div>
-            </div>
+            //     </div>
+            // </div>
         );
 }

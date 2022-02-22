@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import RouteRouting from './ReactRouter/RouteRouting';
-import ReactNavSideMenu from './MasterLayout/ReactNavSideMenu';
+import MasterPage from './MasterLayout/MasterPage';
 
 
 ReactDOM.render(
   <React.StrictMode>
-
-    <RouteRouting></RouteRouting>
-    {/* <ReactNavSideMenu></ReactNavSideMenu> */}
+    {/* <RouteRouting></RouteRouting> */}
+    <MasterPage></MasterPage>
   </React.StrictMode>,
   document.getElementById('root')
 );

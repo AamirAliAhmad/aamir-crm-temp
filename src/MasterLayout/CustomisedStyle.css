@@ -10,10 +10,13 @@
 .Nav-Side-Menu-Width{
     width: 0%;
     transition: width 0.3s;
-    background-color: grey;
     display: flex;
     flex-direction: column;
+    color:white;
+    background-color: white;
 }
+
+
 .Content-Page-Width{
     width: 100%;
     background-color: white; color: black;
@@ -119,6 +122,14 @@
     content: "-";
 }
 
+.fullPageView{
+    background: #e3cccc;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    position: fixed;
+}
 
 
 
@@ -141,3 +152,5 @@
 .plus-minus{float:right}
 .fa.plus-minus:before{content:"\f067"}
 .active>a>.fa.plus-minus:before{content:"\f068"}
+
+

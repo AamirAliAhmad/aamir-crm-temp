@@ -6,7 +6,7 @@ export default function DefualtError() {
 
     return (
         <div>
-            <main>
+            <main className="fullPageView">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 align-self-center">
