@@ -114,7 +114,7 @@ const ReactNavSideMenu = () => {
                             <div className="container-fluid">
                                 <Routes>
                                     {/*<Route path="/" element={<ReactNavSideMenu/>}/>*/}
-                                    <Route path="/Components/ComplaintRegistration" element={<ComplaintRegistration />} />
+                                    <Route path="/Components/ComplaintRegistration" element={<ComplaintRegistration data={{entityId:'7', subEntityId:'1'}} />} />
                                     <Route path="*" element={<DefaultError />} />
                                     <Route path="/" element={<HomePage />} />
                                 </Routes>

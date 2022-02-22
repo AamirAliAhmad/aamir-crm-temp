@@ -1,13 +1,14 @@
 //import MasterLayout from "../MasterPage/MasterLayout";
 //import '../BS-Style.css';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 //import { useHistory } from "react-router-dom"; router dom-5
 import { useNavigate } from 'react-router-dom'  //router dom-6
 //import { loadOptions } from "@babel/core";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
  
-export default function ComplaintRegistration() {
+export default function ComplaintRegistration(props) {
+    //console.log(props);
     //Defining states
     let [Entities, SetEntities] = useState([]);
     let [SubEntities, SetsubEntities] = useState([]);
@@ -17,9 +18,10 @@ export default function ComplaintRegistration() {
     let [CompalaintSources, SetCompalaintSources] = useState([]);
     let [CompalaintPriority, SetCompalaintPriority] = useState([]);
 
+
     let [CompFormData, SetCompFormData] = useState({
-        entityId: "12",
-        subEntityId: "65",
+        entityId: "" ,
+        subEntityId: "",
         projectId:"",
         compTypeId:"",
         compSubTypeId:"",
@@ -35,6 +37,7 @@ export default function ComplaintRegistration() {
         uploadedFile:""
     });
     //const history = useHistory();
+  
 
     const requestOption = {
         method: 'GET',
@@ -45,6 +48,9 @@ export default function ComplaintRegistration() {
     //useEffect is work as page load with [] array with second parameter and first parameter as anonymous function.
     useEffect(() => {
 
+        // SetCompFormData({...CompFormData, entityId:props.entityId==""?"":props.data.entityId});
+        // console.log(CompFormData.entityId);
+    
         //alert('page load called');
 
         //Fetching Entity==
@@ -52,6 +58,7 @@ export default function ComplaintRegistration() {
             .then(response => response.json())
             .then(data => {
                 SetEntities(data);
+             
             })
             .catch(error => {
                 alert(error);
