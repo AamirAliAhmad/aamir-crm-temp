@@ -7,6 +7,8 @@
     height: 100vh;
 
 }
+
+
 .Nav-Side-Menu-Width{
     width: 0%;
     transition: width 0.3s;
