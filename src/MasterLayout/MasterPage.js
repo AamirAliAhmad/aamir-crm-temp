@@ -37,11 +37,12 @@ const ReactNavSideMenu = () => {
                     <div className="Master-Header">
                         <div style={{ width: '220px' }}><NavLink to="/"> <img src={AscenTech_Logo} /></NavLink> </div>
                         <div><button className="btn btn-primary" onClick={handleToggle}>|||</button></div>
-<div>
-<!-- Start of WebFreeCounter Code -->
-<a href="https://www.webfreecounter.com/" target="_blank"><img src="https://www.webfreecounter.com/hit.php?id=gepcacn&nd=6&style=71" border="0" alt="visitor counter"></a>
-<!-- End of WebFreeCounter Code -->
-</div>
+                        <div>
+                            {/* Start of WebFreeCounter Code  */}
+                            {/* <a href="https://www.webfreecounter.com/" target="_blank"></a> */}
+                                <img src="https://www.webfreecounter.com/hit.php?id=gepcacn&nd=6&style=71" border="0" alt="visitor counter"/>
+                            {/* End of WebFreeCounter Code */}
+                        </div>
                         <div style={{ textAlign: 'center', flex: '1', color: 'white', fontSize: '30px', fontWeight: 'bold' }}>ASCENTech Information Technology Pvt Ltd</div>
                         <div style={{}}>
                             <Dropdown>
@@ -119,7 +120,7 @@ const ReactNavSideMenu = () => {
                             <div className="container-fluid">
                                 <Routes>
                                     {/*<Route path="/" element={<ReactNavSideMenu/>}/>*/}
-                                    <Route path="/Components/ComplaintRegistration" element={<ComplaintRegistration data={{entityId:'7', subEntityId:'1'}} />} />
+                                    <Route path="/Components/ComplaintRegistration" element={<ComplaintRegistration data={{ entityId: '7', subEntityId: '1' }} />} />
                                     <Route path="*" element={<DefaultError />} />
                                     <Route path="/" element={<HomePage />} />
                                 </Routes>
